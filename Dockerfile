@@ -2,7 +2,7 @@ FROM python
 WORKDIR /code
 COPY ./app /code/app
 COPY ./requirements.txt /code/requirements.txt
-CMD ["python", "-m", "venv", "venv"]
+RUN python -m venv venv
 CMD ["source", "venv/bin/activate"]
 RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
 CMD ["python", "app.create_db.py"]
